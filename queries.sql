@@ -10,75 +10,38 @@ SELECT * FROM animals WHERE name != 'Gabumon';
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 and 17.3;
 
 /* update the animals table by setting the species column to unspecified */
-
-/* Begin Transaction A */
+-- Transaction 2
 BEGIN;
-
 update animals set species = 'unspecified';
-
-/* Verify that change was made */
 SELECT * from animals;
-
-/* Rollback changes */
 ROLLBACK;
-
-/* Verify changes */
 SELECT * from animals;
 
-/* Begin Transaction B */
+-- Transaction 2 
 BEGIN;
-
-/* update species col for animals with names ending in mon */
 update animals set species = 'digimon' where name like '%mon';
-
-/* update species col for animals with names not ending in mon */
 update animals set species = 'pokemon' where species IS null;
-
-/* Confirm changes */
 SELECT * from animals;
-
-/* commit changes */
 COMMIT;
-
-/* Verify that change was made and persists after commit */
 SELECT * from animals;
 
-/* Delete all records in the animals table transaction C */
-/* Begin Transaction C */
+/* Delete all records in the animals table transaction 5 */
+-- Transaction 3
 BEGIN;
-
-/* delete all records */
 DELETE from animals;
-
-/* verify all records are deleted */
 SELECT * from animals;
-
-/* Rollback changes */
 ROLLBACK;
-
-/* verify all records still exist */
 SELECT * from animals;
 
-/* Begin Transaction D */
+-- Transaction 4
 BEGIN;
-
-/* Delete all animals born after Jan 1st, 2022. */
 DELETE from animals WHERE date_of_birth > '01-01-2022';
-
-/* create a savepoint */
 SAVEPOINT dob;
-
-/* update all animals' weights multiplied by -1 */
 UPDATE animals SET weight_kg =weight_kg * -1;
-
-/* roolback to savepoint */
 ROLLBACK TO dob;
-
-/* update all animals' weights that are negative multiplied by -1 */
 UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
-
-/* commit the transaction */
 COMMIT;
+SELECT * from animals;
 
 /* How many animals are there? */
 SELECT COUNT(*) from animals;
