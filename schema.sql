@@ -9,11 +9,21 @@ CREATE TABLE animals (
     weight_kg decimal not null
 );
 ALTER TABLE animals ADD COLUMN species varchar(100);
+
 /* Create owners table */
-CREATE TABLE owners (id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY NOT NULL, full_name varchar(100), age int);
+CREATE TABLE owners (
+  id INT GENERATED ALWAYS AS IDENTITY not null,
+  full_name varchar(100),
+  age INT,
+  PRIMARY KEY(id)
+);
 
 /* Create species table */
-CREATE TABLE species (id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY NOT NULL, name varchar(100));
+CREATE TABLE species (
+   id INT GENERATED ALWAYS AS IDENTITY not null,
+    name varchar(100),
+    PRIMARY KEY(id)
+);
 
 /* Modify animals table (ID already set to auto_increment while creating the table on line no.5) */
 ALTER TABLE animals DROP COLUMN species;
