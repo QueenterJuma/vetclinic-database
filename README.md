@@ -129,8 +129,6 @@ render.com
 
 ## 👥 Author <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Queenter Juma**
 
 - GitHub:(https://github.com/QueenterJuma)
