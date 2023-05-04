@@ -16,8 +16,7 @@ VALUES
 
 /* INSERT data into owners table */
 INSERT INTO owners (full_name, age) 
-VALUES 
-('Sam Smith', 34), 
+VALUES ('Sam Smith', 34), 
 ('Jennifer Orwell', 19), 
 ('Bob', 45), 
 ('Melody Pond', 77), 
@@ -25,16 +24,26 @@ VALUES
 ('Jodie Whittaker', 38);
 
 /* INSERT data into species table */
-INSERT INTO species (name) VALUES ('Pokemon'), ('Digimon');
+INSERT INTO species (name) 
+VALUES ('Pokemon'), 
+('Digimon');
 
 /* Update animals Table. */
-UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'Digimon') WHERE name LIKE '%mon';
-UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'Pokemon') WHERE name NOT LIKE '%mon';
+UPDATE animals
+SET species_id = CASE
+WHEN name LIKE '%mon' THEN (select id from species where name = 'Digimon')
+ELSE (select id from species where name = 'Pokemon')
+END;
 
 
 /* Update animals table to include owners infomation */
-UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Sam Smith') WHERE name = 'Agumon';
-UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell') WHERE name = 'Gabumon' OR name = 'Pikachu';
-UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob') WHERE name = 'Devimon' OR name = 'Plantmon';
-UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond') WHERE name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom';
-UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester') WHERE name = 'Angemon' OR name = 'Boarmon';
+
+UPDATE animals
+SET owner_id = CASE
+WHEN name = 'Agumon' THEN (select id from owners where full_name = 'Sam Smith')
+WHEN name IN ('Gabumon', 'Pikachu') THEN (select id from owners where full_name = 'Jennifer Orwell')
+WHEN name IN ('Devimon', 'Plantmon') THEN (select id from owners where full_name = 'Bob')
+WHEN name IN ('Charmander', 'Squirtle', 'Blossom') THEN (select id from owners where full_name = 'Melody Pond')
+WHEN name IN ('Angemon', 'Boarmon') THEN (select id from owners where full_name = 'Dean Winchester')
+ELSE NULL
+END;
