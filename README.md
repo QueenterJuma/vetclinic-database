@@ -64,6 +64,7 @@
 - **[Create animals table]**
 - **[Query and update animals table]**
 - **[Query multiple tables]**
+- **[Add "join table" for visits]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -141,7 +142,6 @@ render.com
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [] **[Add "join table" for visits]**
 - [] **[Database performance audit]**
 - [] **[Add database schema diagram]**
 
