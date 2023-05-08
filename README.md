@@ -29,9 +29,11 @@
 **[vetclinic-database]** is a project that store details of animals in a farm and also generates specific reports using SQL quesries.
 
 ## 🛠 Built With <a name="built-with"></a>
+
 - Postgres
 
 ### Tech Stack <a name="tech-stack"></a>
+
 - SQL
 
 > SQL stands for Structured Query Language which is used to access and manipulates databases.
@@ -66,7 +68,6 @@
 - **[Query multiple tables]**
 - **[Add "join table" for visits]**
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
@@ -87,6 +88,7 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 Install Postgres SQL
+
 > [Postgress SQL download](https://www.postgresql.org/download/)
 
 ### Setup
@@ -97,7 +99,7 @@ Example commands:
 
 ```sh
   git clone https:https://github.com/QueenterJuma/vetclinic-database.git
-cd vetclinic-database  
+cd vetclinic-database
 ```
 
 ### Usage
@@ -106,9 +108,9 @@ To run the project, execute the following command:
 
 ```sh
   psql -u postgres
- ```
+```
 
- > Enter your password and continue with sql commands.
+> Enter your password and continue with sql commands.
 
 ### Run tests
 
@@ -134,6 +136,12 @@ render.com
 - GitHub:(https://github.com/QueenterJuma)
 - Twitter: (https://twitter.com/QueenJumah)
 - LinkedIn:(https://www.linkedin.com/in/queenter-juma-54a0b1222/)
+
+👤 **Heldricks Adhola**
+
+- GitHub:(https://github.com/Adholah96)
+- Twitter: (https://twitter.com/nerdy_me_)
+- LinkedIn:(https://www.linkedin.com/in/heldricks-arthur/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -142,7 +150,6 @@ render.com
 
 - [] **[Database performance audit]**
 - [] **[Add database schema diagram]**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
